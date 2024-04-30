@@ -36,3 +36,52 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
+ const bountonTrierCroissant = document.querySelector(".btn-trier-croissant");
+ bountonTrierCroissant.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return a.prix - b.prix;
+    });
+    console.log(piecesOrdonnees);
+ });
+
+ const bountonTrierDecroissant = document.querySelector(".btn-trier-decroissant");
+ bountonTrierDecroissant.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return b.prix - a.prix;
+    });
+    console.log(piecesOrdonnees);
+});
+
+ const boutonFiltrerPrix = document.querySelector(".btn-filtrer-prix");
+ boutonFiltrerPrix.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (piece) {
+        return piece.prix <= 35;
+    });
+    console.log(piecesFiltrees)
+ });
+
+const boutonFiltrerDescription = document.querySelector(".btn-filtrer-description");
+boutonFiltrerDescription.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter( function(piece) {
+        return piece.description;
+    });
+    console.log(piecesFiltrees);
+});
+
+const boutonStock = document.querySelector(".en-stock");
+boutonStock.addEventListener("click", function() {
+    const piecesFiltrees = pieces.filter( function(piece) {
+        return piece.disponibilite;
+    });
+    console.log(piecesFiltrees);
+});
+
+const boutonRupture =document.querySelector(".en-rupture");
+boutonRupture.addEventListener("click", function() {
+    const piecesFiltrees = pieces.filter( function(piece) {
+        return !piece.disponibilite;
+    });
+    console.log(piecesFiltrees);
+});
