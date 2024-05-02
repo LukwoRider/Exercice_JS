@@ -140,7 +140,7 @@ rangePrix.addEventListener("input", function () {
         return piece.prix <= rangePrix.value;
     });
     piecesFiltrees.sort(function (a, b) {
-        return a.prix-b.prix;
+        return a.prix - b.prix;
     })
 
     document.querySelector(".fiches").innerHTML = "";
