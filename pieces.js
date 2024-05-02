@@ -130,3 +130,19 @@ for(let i=0 ; i < nomsDisponibles.length ; i++){
 const pElementDisponible = document.createElement('p')
 pElementDisponible.innerText = "Pièces disponibles:";
 document.querySelector('.disponibles').appendChild(pElementDisponible).appendChild(disponiblesElement)
+
+const rangePrix = document.querySelector("#range-prix");
+
+rangePrix.addEventListener("input", function () {
+    console.log("add : " + rangePrix.value)
+    const piecesFiltrees = pieces.filter(function (piece) {
+        console.log("func : " + rangePrix.value)
+        return piece.prix <= rangePrix.value;
+    });
+    piecesFiltrees.sort(function (a, b) {
+        return a.prix-b.prix;
+    })
+
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesFiltrees);
+});
