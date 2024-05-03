@@ -13,7 +13,7 @@ export function ajoutListenersAvis() {
 
         const avisElement = document.createElement("p");
         for (let i = 0; i < avis.length; i++) {
-            avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} <br>`;
+            avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} ${avis[i].nbEtoiles + "/5"}<br>`;
         }
         pieceElement.appendChild(avisElement);
  
@@ -31,6 +31,7 @@ export function ajoutListenersAvis() {
         pieceId: parseInt(event.target.querySelector("[name=piece-id]").value),
         utilisateur: event.target.querySelector("[name=utilisateur").value,
         commentaire: event.target.querySelector("[name=commentaire]").value,
+        nbEtoiles: parseInt(event.target.querySelector("[name=nbEtoiles]").value)
     };
     // Création de la charge utile au format JSON
     const chargeUtile = JSON.stringify(avis);
