@@ -60,14 +60,14 @@ function genererPieces(pieces){
 
 genererPieces(pieces);
 
-for(let i = 0; i < pieces.length; i++) {
+for(let i = 0; i < pieces.length; i++){
     const id = pieces[i].id;
     const avisJSON = window.localStorage.getItem(`avis-piece-${id}`);
     const avis = JSON.parse(avisJSON);
 
     if(avis !== null){
-        const pieceElement = document.querySelector(`article-id="${id}"`);
-        AfficherAvis(pieceElement, avis)
+        const pieceElement = document.querySelector(`article[data-id="${id}"]`);
+        afficherAvis(pieceElement, avis)
     }
 }
 
